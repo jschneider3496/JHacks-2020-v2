@@ -264,9 +264,9 @@ class ItemList {
         //     }
         // })
         // return this;
-        this.add(new ToDoItem("A", "aa", new Date(2023, 2, 15, 1, 0, 0, 0), 45, "Easy"));
-        this.add(new ToDoItem("B", "ss", new Date(), 15, "Medium"));
-		this.add(new ToDoItem("C", "gg", new Date(), 20, "Hard"));
+        this.add(new ToDoItem("A", "aa", new Date(2023, 2, 15, 1, 0, 0, 0), 45, 0));
+        this.add(new ToDoItem("B", "ss", new Date(), 15, 1));
+		this.add(new ToDoItem("C", "gg", new Date(), 20, 2));
     }
 
 }

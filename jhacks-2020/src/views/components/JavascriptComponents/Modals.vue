@@ -50,15 +50,16 @@
                 </template>
             </modal>
     </div>-->
-    <div v-for="item in items" v-bind:key="item.name">
+    <div v-for="item in items" v-bind:key="item.weight">
       <div class="col-md-12">
-        <base-button block type="default" class="mb-3" @click="modals.modal3 = true">{{item.weight}}</base-button>
-
+        <base-button block type="default" class="mb-3" @click="modals.modal3 = true">{{item.name}}</base-button>
+        
         <modal
           :show.sync="modals.modal3"
           body-classes="p-0"
           modal-classes="modal-dialog-centered modal-sm"
         >
+        
           <card
             type
             shadow
@@ -74,7 +75,7 @@
             </template>
             <template>
               <form role="form">
-                <base-input alternative class="mb-3" placeholder="TIME" disabled></base-input>
+                <base-input alternative class="mb-3" disabled>{{item}}</base-input>
                 <base-input alternative class="mb-3" placeholder="Difficulty" disabled></base-input>
                 <base-input alternative class="mb-3" placeholder="Notes" disabled></base-input>
                 <base-input alternative class="mb-3" placeholder="Urgency" disabled></base-input>
@@ -93,7 +94,7 @@
           </card>
         </modal>
       </div>
-      <br />
+      
     </div>
   </div>
 </template>
