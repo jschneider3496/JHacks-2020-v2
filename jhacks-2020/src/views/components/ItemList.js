@@ -31,7 +31,7 @@ class ToDoItem {
     }
 
     toString() {
-        return this.name + " " + this.status + " " + this.notes + " " + this.weight + " " + this.date.toString() + " " + this.estTime + " " + this.difficulty;
+		return this.name + " | Due: " + (this.date.getMonth() + 1) +"/" + (this.date.getDate())  + "/" + this.date.getFullYear() + " | Time: " + (Math.trunc(this.estTime/60)) + " hours, " + (this.estTime % 60) + " min. | Difficulty: " + this.difficulty;
     }
 }
 
