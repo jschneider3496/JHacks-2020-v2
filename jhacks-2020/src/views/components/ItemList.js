@@ -8,7 +8,12 @@ class ToDoItem {
         this.date = date; //stored as date object, hrsUntil will determine weight
         this.estTime = estTime; //estimated time required to complete (min)
         this.difficulty = difficulty; //Hard(2), Medium(1), Easy(0)
-
+		this.diffNum = 0;
+		if(this.difficulty == ("Medium")) {
+			this.diffNum = 1;
+		} else if(this.difficulty == ("Hard")) {
+			this.diffNum = 2;
+		}
         this.weight = this.calcWeight();
     }
 
@@ -20,7 +25,7 @@ class ToDoItem {
         if (this.hrsUntil() <= 0) {
             return 1000;
         }
-        return (1 / (this.hrsUntil() / 2400)) + (this.difficulty * this.estTime / 120);
+        return (1 / (this.hrsUntil() / 2400)) + (this.diffNum * this.estTime / 120);
     }
 
     toString() {
