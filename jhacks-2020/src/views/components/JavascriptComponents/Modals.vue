@@ -1,6 +1,6 @@
 <template>
   <!-- Modals -->
-  <div class="row">
+  <div class="column">
     <base-button block type="info" class="mb-3" @click="modals.modal2 = true">Create</base-button>
 
     <modal
