@@ -4,7 +4,7 @@
 ## Reviews:
 ### "One click and a refresh from completinj your daily tasks" - Jeneral Electric 
 ## Our Product:
-[![Image from Gyazo](https://i.gyazo.com/106def76717b649b00be46b26583fd81.png)](https://gyazo.com/106def76717b649b00be46b26583fd81)
+[![Image from Gyazo](https://i.gyazo.com/31ab976d362767505f8252d3cd1ccebc.png)](https://gyazo.com/31ab976d362767505f8252d3cd1ccebc)
 
 
 
