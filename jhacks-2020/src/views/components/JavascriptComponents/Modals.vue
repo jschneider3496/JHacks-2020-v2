@@ -106,7 +106,6 @@ import { ToDoItem } from "../ItemList.js";
 var todo = new ItemList();
 var list = todo.toArray();
 
-
 export default {
   components: {
     Modal
@@ -133,12 +132,14 @@ export default {
   methods: {
     handleSubmit() {
 
-      
+      var temp = new Date(this.newItem.date);
+      temp.setDate(temp.getDate() + 1);
+
       todo.add(
         new ToDoItem(
           this.newItem.name,
           this.newItem.notes,
-          new Date(this.newItem.date),
+          temp,
           this.newItem.time,
           this.newItem.difficulty
         )
