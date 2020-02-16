@@ -3,67 +3,75 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-12">
-                    <!-- Basic elements -->
-                    <h2 class="mb-5">
-                        <span>Basic Elements</span>
-                    </h2>
-                    <!-- Buttons -->
-                    <h3 class="h4 text-success font-weight-bold mb-4">Buttons</h3>
-                    <!-- Button styles -->
-                    <div>
-                        <base-button type="primary">Button</base-button>
-                        <base-button class="btn-3" type="primary" icon="ni ni-bag-17">Button</base-button>
-                        <base-button class="btn-2" type="primary" icon="ni ni-bag-17"></base-button>
-
-                        <!-- Button wizes -->
-                        <div class="mb-3 mt-5">
-                            <small class="text-uppercase font-weight-bold">Pick your size</small>
-                        </div>
-
-                        <base-button type="primary" size="sm">Small</base-button>
-                        <base-button type="primary">Regular</base-button>
-                        <base-button type="primary" size="lg">Large Button</base-button>
-
-                    </div>
-                    <!-- Button colors -->
-                    <div class="mb-3 mt-5">
-                        <small class="text-uppercase font-weight-bold">Pick your color</small>
-                    </div>
-                    <base-button class="btn-1" type="primary">Primary</base-button>
                     <base-button class="btn-1" type="info">Info</base-button>
-                    <base-button class="btn-1" type="success">Success</base-button>
-                    <base-button class="btn-1" type="warning">Warning</base-button>
-                    <base-button class="btn-1" type="danger">Danger</base-button>
-                    <base-button class="btn-1" type="neutral">Neutral</base-button>
-
-                    <div class="mb-3 mt-5">
-                        <small class="text-uppercase font-weight-bold">Outline</small>
-                    </div>
-
-                    <base-button class="btn-1" outline type="primary">Outline Primary</base-button>
-                    <base-button class="btn-1" outline type="info">Outline Info</base-button>
-                    <base-button class="btn-1" outline type="success">Outline Success</base-button>
-                    <base-button class="btn-1" outline type="warning">Outline Warning</base-button>
-                    <base-button class="btn-1" outline type="danger">Outline Danger</base-button>
-                    <base-button class="btn-1" outline type="neutral">Outline Neutral</base-button>
-                    <!-- Button links -->
-                    <div class="mb-3 mt-5">
-                        <small class="text-uppercase font-weight-bold">Links</small>
-                    </div>
-                    <a href="#" class="btn btn-link text-default">Default</a>
-                    <a href="#" class="btn btn-link text-primary">Primary</a>
-                    <a href="#" class="btn btn-link text-info">Info</a>
-                    <a href="#" class="btn btn-link text-success">Success</a>
-                    <a href="#" class="btn btn-link text-warning">Warning</a>
-                    <a href="#" class="btn btn-link text-danger">Danger</a>
                 </div>
             </div>
         </div>
+        <div class="col-md-2">
+      <base-button block type="info" class="mb-3" @click="modals.modal2 = true">Create</base-button>
+
+      <modal
+        :show.sync="modals.modal2"
+        body-classes="p-0"
+        modal-classes="modal-dialog-centered modal-sm"
+      >
+        <card
+          type
+          shadow
+          header-classes="bg-white pb-5"
+          body-classes="px-lg-5 py-lg-5"
+          class="border-0"
+        >
+          <template>
+            <div class="text-muted text-center mb-3">
+              <small>Enter your task info</small>
+            </div>
+            <div class="btn-wrapper text-center"></div>
+          </template>
+          <template>
+            <form role="form">
+              <base-input alternative class="mb-3" placeholder="Time" disabled></base-input>
+              <base-input alternative class="mb-3" placeholder="Difficulty" disabled></base-input>
+              <base-input alternative class="mb-3" placeholder="Notes" disabled></base-input>
+              <base-input alternative class="mb-3" placeholder="Urgency" disabled></base-input>
+              
+              <!-- <base-input
+                alternative
+                type="password"
+                placeholder="Password"
+                addon-left-icon="ni ni-lock-circle-open"
+              ></base-input> -->
+              <div class="text-center">
+                <base-button type="primary" class="my-4">Close</base-button>
+              </div>
+            </form>
+          </template>
+        </card>
+      </modal>
+    </div>
     </section>
 
 </template>
 <script>
-export default {};
+import Modal from "@/components/Modal.vue";
+export default {
+  components: {
+    Modal
+  },
+  data() {
+    return {
+      modals: {
+        modal1: false,
+        modal2: false,
+        modal3: false
+      }
+    };
+  }
+};
 </script>
 <style>
+  mb-3 {
+    position: sticky;
+    float: center;
+  }
 </style>

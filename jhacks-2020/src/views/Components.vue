@@ -2,11 +2,12 @@
     <div>
       <navigation></navigation>
         <!-- <hero></hero> -->
-        <!-- <basic-elements></basic-elements> -->
+
         <!-- <inputs></inputs> -->
         <!-- <custom-controls></custom-controls> -->
         
         <javascript-components></javascript-components>
+        <basic-elements></basic-elements>
         <!-- <icons></icons>
         <examples></examples>
         <download-section></download-section>
