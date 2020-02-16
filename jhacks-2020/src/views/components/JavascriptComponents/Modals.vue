@@ -1,7 +1,7 @@
 <template>
     <!-- Modals -->
     <div class="row">
-        <div class="col-md-4">
+        <!-- <div class="col-md-4">
             <base-button block type="primary" class=" mb-3" @click="modals.modal1 = true">
                 Default
             </base-button>
@@ -49,8 +49,8 @@
                     </base-button>
                 </template>
             </modal>
-        </div>
-        <div class="col-md-4">
+        </div> -->
+        <div class="col-md-12">
             <base-button block type="default" class=" mb-3" @click="modals.modal3 = true">
                 Form
             </base-button>
