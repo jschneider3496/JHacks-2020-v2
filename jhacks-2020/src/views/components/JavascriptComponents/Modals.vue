@@ -41,7 +41,7 @@
             
             
             <div class="text-center">
-              <base-button type="primary" class="my-4">Submit</base-button>
+              <base-button type="primary" class="my-4" >Submit</base-button>
             </div>
           </form>
         </template>
@@ -131,7 +131,7 @@
                 addon-left-icon="ni ni-lock-circle-open"
                 ></base-input>-->
                 <div class="text-center">
-                  <base-button type="primary" class="my-4">Close</base-button>
+                  <base-button type="primary" class="my-4" @click="modals.modal3 = false">Close</base-button>
                 </div>
               </form>
             </template>
