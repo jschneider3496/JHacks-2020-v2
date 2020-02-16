@@ -232,8 +232,10 @@ class ItemList {
             return
         }
             const tmpList = JSON.parse(document.cookie);
-            var curr = tmpList.head;
-            var ele = curr.element;
+			var curr = tmpList.head;
+			if(curr) {
+			var ele = curr.element;
+			}
             while (curr) {
                 ele = curr.element;
                 this.add(new ToDoItem(ele.name, ele.notes, new Date(ele.date), ele.estTime, ele.difficulty));
