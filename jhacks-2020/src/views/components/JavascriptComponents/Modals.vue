@@ -23,7 +23,36 @@
         </template>
         <template>
           <form @submit.prevent="handleSubmit" role="form">
-            <base-input v-model="newItem.name" alternative class="mb-3" placeholder="Name" required></base-input>
+            <label>
+              Name:
+              <input type="text" v-model="newItem.name" />
+            </label>
+            <br />
+            <label>
+              Notes:
+              <input type="text" v-model="newItem.notes" />
+            </label>
+            <br />
+            <label>
+              Date:
+              <input type="date" v-model="newItem.date" />
+            </label>
+            <br />
+            <label>
+              Duration (in minutes): 
+              <input type="text" v-model="newItem.time" />
+            </label>
+            <br />
+            <label>
+              Difficulty: 
+            </label>
+              <select v-model="newItem.difficulty" required>
+                <option disabled value>Please select one</option>
+                <option>Easy</option>
+                <option>Medium</option>
+                <option>Hard</option>
+              </select>
+            <!-- <base-input v-model="newItem.name" type="text" alternative class="mb-3" placeholder="Name" required></base-input>
             <base-input v-model="newItem.date" alternative class="mb-3" placeholder="Date" type="date" required></base-input>
             <base-input v-model="newItem.time" alternative class="mb-3" placeholder="Estimated time (in minutes)" required></base-input>
            
@@ -35,13 +64,12 @@
               <option>Easy</option>
               <option>Medium</option>
               <option>Hard</option>
-            </select>
-            
+            </select>-->
+
             <!-- <span>Selected: {{ selected }}</span> -->
-            
-            
+
             <div class="text-center">
-              <button type="submit">Submit</button>
+              <button type="submit" @click="modals.modal2 = false">Submit</button>
             </div>
           </form>
         </template>
@@ -154,7 +182,7 @@ function myFunction() {
   console.log("log");
   console.log(x);
 }
-            
+
 export default {
   components: {
     Modal
@@ -169,17 +197,28 @@ export default {
       items: list,
       newItem: {
         name: '',
-        notes:'',
-        date:'',
-        time:'',
-        difficulty:''
+        notes: '',
+        date: '',
+        time: '',
+        difficulty: ''
       }
     };
   },
 
   methods: {
-    handleSubmit(){
-      console.log(newItem);
+    handleSubmit() {
+      console.log(this.newItem);
+      todo.add(
+        new ToDoItem(
+          this.newItem.name,
+          this.newItem.notes,
+          new Date(),
+          this.newItem.time,
+          this.newItem.difficulty
+        )
+      );
+      todo.printList();
+
       // todo.add(new ToDoItem(name, notes,date, time, difficulty))
     }
   }
