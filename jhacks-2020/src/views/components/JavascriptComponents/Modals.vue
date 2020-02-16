@@ -50,21 +50,7 @@
               <option>Medium</option>
               <option>Hard</option>
             </select>
-            <!-- <base-input v-model="newItem.name" type="text" alternative class="mb-3" placeholder="Name" required></base-input>
-            <base-input v-model="newItem.date" alternative class="mb-3" placeholder="Date" type="date" required></base-input>
-            <base-input v-model="newItem.time" alternative class="mb-3" placeholder="Estimated time (in minutes)" required></base-input>
-           
-            <base-input v-model="newItem.notes" alternative class="mb-3" placeholder="Notes" required></base-input>
-            <span>Difficulty</span>
-            <br />
-            <select v-model="newItem.difficulty" required>
-              <option disabled value>Please select one</option>
-              <option>Easy</option>
-              <option>Medium</option>
-              <option>Hard</option>
-            </select>-->
 
-            <!-- <span>Selected: {{ selected }}</span> -->
 
             <div class="text-center">
               <button type="submit" @click="modals.modal2 = false">Submit</button>
@@ -73,57 +59,9 @@
         </template>
       </card>
     </modal>
-    <!-- <div class="col-md-4">
-            <base-button block type="primary" class=" mb-3" @click="modals.modal1 = true">
-                Default
-            </base-button>
-            <modal :show.sync="modals.modal1">
-                <h6 slot="header" class="modal-title" id="modal-title-default">Type your modal title</h6>
-
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                    Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
-                    right at the coast of the Semantics, a large language ocean.</p>
-                <p>A small river named Duden flows by their place and supplies it with the necessary
-                    regelialia. It is a paradisematic country, in which roasted parts of sentences
-                    fly into your mouth.</p>
-
-                <template slot="footer">
-                    <base-button type="primary">Save changes</base-button>
-                    <base-button type="link" class="ml-auto" @click="modals.modal1 = false">Close
-                    </base-button>
-                </template>
-            </modal>
-        </div>
-        <div class="col-md-4">
-            <base-button block type="warning" class=" mb-3" @click="modals.modal2 = true">
-                Notification
-            </base-button>
-
-            <modal :show.sync="modals.modal2"
-                   gradient="danger"
-                   modal-classes="modal-danger modal-dialog-centered">
-                <h6 slot="header" class="modal-title" id="modal-title-notification">Your attention is required</h6>
-
-                <div class="py-3 text-center">
-                    <i class="ni ni-bell-55 ni-3x"></i>
-                    <h4 class="heading mt-4">You should read this!</h4>
-                    <p>A small river named Duden flows by their place and supplies it with the
-                        necessary regelialia.</p>
-                </div>
-
-                <template slot="footer">
-                    <base-button type="white">Ok, Got it</base-button>
-                    <base-button type="link"
-                                 text-color="white"
-                                 class="ml-auto"
-                                 @click="modals.modal2 = false">
-                        Close
-                    </base-button>
-                </template>
-            </modal>
-    </div>-->
+    
     <div v-for="item in items" v-bind:key="item.weight">
-      <div class="col-md-12">
+      <div class="col-md-20">
         <base-button block type="default" class="mb-3" @click="modals.modal3 = true">{{item.toString()}}</base-button>
         <modal
           :show.sync="modals.modal3"
@@ -199,7 +137,7 @@ export default {
         new ToDoItem(
           this.newItem.name,
           this.newItem.notes,
-          new Date(),
+          new Date(this.newItem.date),
           this.newItem.time,
           this.newItem.difficulty
         )
