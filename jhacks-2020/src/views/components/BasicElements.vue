@@ -54,6 +54,13 @@
 </template>
 <script>
 import Modal from "@/components/Modal.vue";
+
+import {ItemList} from "./ItemList.js"
+import {ToDoList} from "./ItemList.js"
+
+var todo = new ItemList();
+todo.printList();
+
 export default {
   components: {
     Modal
@@ -71,7 +78,7 @@ export default {
 </script>
 <style>
   mb-3 {
-    position: sticky;
+    position: fixed;
     float: center;
   }
 </style>

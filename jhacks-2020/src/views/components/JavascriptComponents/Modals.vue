@@ -50,6 +50,9 @@
                 </template>
             </modal>
     </div>-->
+
+    <li v-for="item in items" v-bind:key="item.message">{{ item.message }}</li>
+
     <div class="col-md-12">
       <base-button block type="default" class="mb-3" @click="modals.modal3 = true">TASK NAME</base-button>
 
@@ -77,13 +80,13 @@
               <base-input alternative class="mb-3" placeholder="Difficulty" disabled></base-input>
               <base-input alternative class="mb-3" placeholder="Notes" disabled></base-input>
               <base-input alternative class="mb-3" placeholder="Urgency" disabled></base-input>
-              
+
               <!-- <base-input
                 alternative
                 type="password"
                 placeholder="Password"
                 addon-left-icon="ni ni-lock-circle-open"
-              ></base-input> -->
+              ></base-input>-->
               <div class="text-center">
                 <base-button type="primary" class="my-4">Close</base-button>
               </div>
@@ -96,6 +99,11 @@
 </template>
 <script>
 import Modal from "@/components/Modal.vue";
+import { ItemList } from "../ItemList.js";
+import { ToDoList } from "../ItemList.js";
+
+var todo = new ItemList();
+
 export default {
   components: {
     Modal
@@ -106,7 +114,17 @@ export default {
         modal1: false,
         modal2: false,
         modal3: false
-      }
+
+        // items: ["a", "b", "c"]
+        //   { type: "default", menuComponent: Menu1 },
+        //   // { type: "primary", menuComponent: Menu2 },
+        //   // { type: "success", menuComponent: Menu3 },
+        //   // { type: "danger", menuComponent: Menu4 },
+        //   // { type: "warning", menuComponent: Menu5 },
+        //   // { type: "info", menuComponent: Menu6 }
+        // ]
+      },
+      items: [{ message: "Foo" }, { message: "Bar" }]
     };
   }
 };
