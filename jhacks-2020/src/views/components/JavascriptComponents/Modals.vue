@@ -149,13 +149,6 @@
                 <base-input alternative class="mb-3" placeholder="Difficulty" disabled></base-input>
                 <base-input alternative class="mb-3" placeholder="Notes" disabled></base-input>
                 <base-input alternative class="mb-3" placeholder="Urgency" disabled></base-input>
-
-                <!-- <base-input
-                alternative
-                type="password"
-                placeholder="Password"
-                addon-left-icon="ni ni-lock-circle-open"
-                ></base-input>-->
                 <div class="text-center">
                   <base-button type="primary" class="my-4" @click="modals.modal3 = false">Close</base-button>
                 </div>
@@ -200,21 +193,24 @@ export default {
 
   methods: {
     handleSubmit() {
-      // console.log(this.newItem);
+      let difficulty = 0;
+      // if (this.newItem.difficulty.equals("Medium"))
+      //   difficulty = 1;
+      // else if (this.newItem.difficulty.equals("Hard")) 
+      //   difficulty = 0;
+      
       todo.add(
         new ToDoItem(
           this.newItem.name,
           this.newItem.notes,
           new Date(),
           this.newItem.time,
-          this.newItem.difficulty
+          difficulty
         )
       );
       todo.save();
       todo.printList();
       list = todo.toArray();
-      // vm.$forceUpdate();
-      // todo.add(new ToDoItem(name, notes,date, time, difficulty))
     }
   }
 };
