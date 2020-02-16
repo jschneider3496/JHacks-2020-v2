@@ -22,15 +22,15 @@
           <div class="btn-wrapper text-center"></div>
         </template>
         <template>
-          <form role="form">
-            <base-input v-model="name" alternative class="mb-3" placeholder="Name" required></base-input>
-            <base-input v-model="date" alternative class="mb-3" placeholder="Date" type="date" required></base-input>
-            <base-input v-model="time" alternative class="mb-3" placeholder="Estimated time (in minutes)" required></base-input>
-            <base-input v-model="urgency" alternative class="mb-3" placeholder="Urgency" required></base-input>
-            <base-input v-model="notes" alternative class="mb-3" placeholder="Notes" required></base-input>
+          <form @submit.prevent="handleSubmit" role="form">
+            <base-input v-model="newItem.name" alternative class="mb-3" placeholder="Name" required></base-input>
+            <base-input v-model="newItem.date" alternative class="mb-3" placeholder="Date" type="date" required></base-input>
+            <base-input v-model="newItem.time" alternative class="mb-3" placeholder="Estimated time (in minutes)" required></base-input>
+           
+            <base-input v-model="newItem.notes" alternative class="mb-3" placeholder="Notes" required></base-input>
             <span>Difficulty</span>
             <br />
-            <select v-model="difficulty" required>
+            <select v-model="newItem.difficulty" required>
               <option disabled value>Please select one</option>
               <option>Easy</option>
               <option>Medium</option>
@@ -41,7 +41,7 @@
             
             
             <div class="text-center">
-              <base-button type="primary" class="my-4" >Submit</base-button>
+              <button type="submit">Submit</button>
             </div>
           </form>
         </template>
@@ -149,6 +149,12 @@ import { ToDoItem } from "../ItemList.js";
 var todo = new ItemList();
 var list = todo.toArray();
 
+function myFunction() {
+  var x = document.getElementById("createForm").submit;
+  console.log("log");
+  console.log(x);
+}
+            
 export default {
   components: {
     Modal
@@ -159,18 +165,23 @@ export default {
         modal1: false,
         modal2: false,
         modal3: false
-
-        // items: ["a", "b", "c"]
-        //   { type: "default", menuComponent: Menu1 },
-        //   // { type: "primary", menuComponent: Menu2 },
-        //   // { type: "success", menuComponent: Menu3 },
-        //   // { type: "danger", menuComponent: Menu4 },
-        //   // { type: "warning", menuComponent: Menu5 },
-        //   // { type: "info", menuComponent: Menu6 }
-        // ]
       },
-      items: list
+      items: list,
+      newItem: {
+        name: '',
+        notes:'',
+        date:'',
+        time:'',
+        difficulty:''
+      }
     };
+  },
+
+  methods: {
+    handleSubmit(){
+      console.log(newItem);
+      // todo.add(new ToDoItem(name, notes,date, time, difficulty))
+    }
   }
 };
 </script>
