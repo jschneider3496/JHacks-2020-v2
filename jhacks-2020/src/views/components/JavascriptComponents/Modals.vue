@@ -1,6 +1,52 @@
 <template>
   <!-- Modals -->
   <div class="row">
+    <base-button block type="info" class="mb-3" @click="modals.modal2 = true">Create</base-button>
+
+    <modal
+      :show.sync="modals.modal2"
+      body-classes="p-0"
+      modal-classes="modal-dialog-centered modal-sm"
+    >
+      <card
+        type
+        shadow
+        header-classes="bg-white pb-5"
+        body-classes="px-lg-5 py-lg-5"
+        class="border-0"
+      >
+        <template>
+          <div class="text-muted text-center mb-3">
+            <small>Enter your task info</small>
+          </div>
+          <div class="btn-wrapper text-center"></div>
+        </template>
+        <template>
+          <form role="form">
+            <base-input v-model="name" alternative class="mb-3" placeholder="Name" required></base-input>
+            <base-input v-model="date" alternative class="mb-3" placeholder="Date" type="date" required></base-input>
+            <base-input v-model="time" alternative class="mb-3" placeholder="Estimated time (in minutes)" required></base-input>
+            <base-input v-model="urgency" alternative class="mb-3" placeholder="Urgency" required></base-input>
+            <base-input v-model="notes" alternative class="mb-3" placeholder="Notes" required></base-input>
+            <span>Difficulty</span>
+            <br />
+            <select v-model="difficulty" required>
+              <option disabled value>Please select one</option>
+              <option>Easy</option>
+              <option>Medium</option>
+              <option>Hard</option>
+            </select>
+            
+            <!-- <span>Selected: {{ selected }}</span> -->
+            
+            
+            <div class="text-center">
+              <base-button type="primary" class="my-4">Submit</base-button>
+            </div>
+          </form>
+        </template>
+      </card>
+    </modal>
     <!-- <div class="col-md-4">
             <base-button block type="primary" class=" mb-3" @click="modals.modal1 = true">
                 Default
@@ -58,7 +104,6 @@
           body-classes="p-0"
           modal-classes="modal-dialog-centered modal-sm"
         >
-        
           <card
             type
             shadow
@@ -93,7 +138,6 @@
           </card>
         </modal>
       </div>
-      
     </div>
   </div>
 </template>

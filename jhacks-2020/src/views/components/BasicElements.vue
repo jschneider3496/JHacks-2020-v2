@@ -1,12 +1,6 @@
 <template>
     <section class="section section-components pb-0" id="section-components">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    <base-button class="btn-1" type="info">Info</base-button>
-                </div>
-            </div>
-        </div>
+        <div class="container"></div>
         <div class="col-md-2">
       <base-button block type="info" class="mb-3" @click="modals.modal2 = true">Create</base-button>
 
@@ -55,11 +49,7 @@
 <script>
 import Modal from "@/components/Modal.vue";
 
-import {ItemList} from "./ItemList.js"
-import {ToDoList} from "./ItemList.js"
 
-var todo = new ItemList();
-todo.printList();
 
 export default {
   components: {

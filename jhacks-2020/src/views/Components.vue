@@ -7,7 +7,7 @@
         <!-- <custom-controls></custom-controls> -->
         
         <javascript-components></javascript-components>
-        <basic-elements></basic-elements>
+        <!-- <basic-elements></basic-elements> -->
         <!-- <icons></icons>
         <examples></examples>
         <download-section></download-section>
@@ -25,14 +25,9 @@ import Carousel from "./components/Carousel";
 import Icons from "./components/Icons";
 import Examples from "./components/Examples";
 import DownloadSection from "./components/DownloadSection";
-import {ItemList} from "./components/ItemList.js"
-import {ToDoList} from "./components/ItemList.js"
 
-var todo = new ItemList();
-todo.printList();
 // todo.add()
 
-export {todo}
 
 export default {
   name: "components",
