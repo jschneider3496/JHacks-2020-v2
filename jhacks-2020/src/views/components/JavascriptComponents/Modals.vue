@@ -62,7 +62,12 @@
     
     <div v-for="item in items" v-bind:key="item.weight">
       <div class="col-md-20">
-        <base-button block type="default" class="mb-3" @click=" todos.removeFrom(items.indexOf(item)), items.splice(items.indexOf(item), 1), todos.save()">{{item.toString()}}</base-button>
+        <div class="btn-group d-flex" role="group" aria-label="First group">
+          <base-button block type="default" class="mb-3">{{item.toString()}}</base-button>
+          <base-button type="default" class="mb-3" @click=" todos.removeFrom(items.indexOf(item)), items.splice(items.indexOf(item), 1), todos.save()">X</base-button> 
+        </div>
+
+        
         <modal
           :show.sync="modals.modal3"
           body-classes="p-0"
