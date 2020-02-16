@@ -50,59 +50,60 @@
                 </template>
             </modal>
     </div>-->
+    <div v-for="item in items" v-bind:key="item.name">
+      <div class="col-md-12">
+        <base-button block type="default" class="mb-3" @click="modals.modal3 = true">{{item.weight}}</base-button>
 
-    <li v-for="item in items" v-bind:key="item.message">{{ item.message }}</li>
-
-    <div class="col-md-12">
-      <base-button block type="default" class="mb-3" @click="modals.modal3 = true">TASK NAME</base-button>
-
-      <modal
-        :show.sync="modals.modal3"
-        body-classes="p-0"
-        modal-classes="modal-dialog-centered modal-sm"
-      >
-        <card
-          type
-          shadow
-          header-classes="bg-white pb-5"
-          body-classes="px-lg-5 py-lg-5"
-          class="border-0"
+        <modal
+          :show.sync="modals.modal3"
+          body-classes="p-0"
+          modal-classes="modal-dialog-centered modal-sm"
         >
-          <template>
-            <div class="text-muted text-center mb-3">
-              <small>Enter your task info</small>
-            </div>
-            <div class="btn-wrapper text-center"></div>
-          </template>
-          <template>
-            <form role="form">
-              <base-input alternative class="mb-3" placeholder="Time" disabled></base-input>
-              <base-input alternative class="mb-3" placeholder="Difficulty" disabled></base-input>
-              <base-input alternative class="mb-3" placeholder="Notes" disabled></base-input>
-              <base-input alternative class="mb-3" placeholder="Urgency" disabled></base-input>
+          <card
+            type
+            shadow
+            header-classes="bg-white pb-5"
+            body-classes="px-lg-5 py-lg-5"
+            class="border-0"
+          >
+            <template>
+              <div class="text-muted text-center mb-3">
+                <small>Enter your task info</small>
+              </div>
+              <div class="btn-wrapper text-center"></div>
+            </template>
+            <template>
+              <form role="form">
+                <base-input alternative class="mb-3" placeholder="TIME" disabled></base-input>
+                <base-input alternative class="mb-3" placeholder="Difficulty" disabled></base-input>
+                <base-input alternative class="mb-3" placeholder="Notes" disabled></base-input>
+                <base-input alternative class="mb-3" placeholder="Urgency" disabled></base-input>
 
-              <!-- <base-input
+                <!-- <base-input
                 alternative
                 type="password"
                 placeholder="Password"
                 addon-left-icon="ni ni-lock-circle-open"
-              ></base-input>-->
-              <div class="text-center">
-                <base-button type="primary" class="my-4">Close</base-button>
-              </div>
-            </form>
-          </template>
-        </card>
-      </modal>
+                ></base-input>-->
+                <div class="text-center">
+                  <base-button type="primary" class="my-4">Close</base-button>
+                </div>
+              </form>
+            </template>
+          </card>
+        </modal>
+      </div>
+      <br />
     </div>
   </div>
 </template>
 <script>
 import Modal from "@/components/Modal.vue";
 import { ItemList } from "../ItemList.js";
-import { ToDoList } from "../ItemList.js";
+import { ToDoItem } from "../ItemList.js";
 
 var todo = new ItemList();
+var list = todo.toArray();
 
 export default {
   components: {
@@ -124,7 +125,7 @@ export default {
         //   // { type: "info", menuComponent: Menu6 }
         // ]
       },
-      items: [{ message: "Foo" }, { message: "Bar" }]
+      items: list
     };
   }
 };
