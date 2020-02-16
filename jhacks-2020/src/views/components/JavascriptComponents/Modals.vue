@@ -193,11 +193,7 @@ export default {
 
   methods: {
     handleSubmit() {
-      let difficulty = 0;
-      // if (this.newItem.difficulty.equals("Medium"))
-      //   difficulty = 1;
-      // else if (this.newItem.difficulty.equals("Hard")) 
-      //   difficulty = 0;
+
       
       todo.add(
         new ToDoItem(
@@ -205,7 +201,7 @@ export default {
           this.newItem.notes,
           new Date(),
           this.newItem.time,
-          difficulty
+          this.newItem.difficulty
         )
       );
       todo.save();
