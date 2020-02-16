@@ -22,7 +22,7 @@
           <div class="btn-wrapper text-center"></div>
         </template>
         <template>
-          <form @submit.prevent="handleSubmit" role="form">
+          <form @submit="handleSubmit" role="form">
             <label>
               Name:
               <input type="text" v-model="newItem.name" />
