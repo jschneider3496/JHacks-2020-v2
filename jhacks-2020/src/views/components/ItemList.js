@@ -204,6 +204,16 @@ class ItemList {
 		console.log(this.size); 
 	}
 
+	toArray() {
+		var curr = this.head; 
+		var arr = []; 
+		while (curr) { 
+			arr.push(curr.element); 
+			curr = curr.next; 
+		} 
+		return arr;
+	}
+
 	printList() 
 	{ 
 		var curr = this.head; 
@@ -256,7 +266,7 @@ class ItemList {
         // return this;
         this.add(new ToDoItem("A", "aa", new Date(), 45, "Easy"));
         this.add(new ToDoItem("B", "ss", new Date(), 15, "Medium"));
-        this.add(new ToDoItem("C", "gg", new Date(), 20, "Hard"));
+		this.add(new ToDoItem("C", "gg", new Date(), 20, "Hard"));
     }
 
 }
