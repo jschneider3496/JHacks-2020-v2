@@ -5,7 +5,9 @@ class ToDoItem {
         this.notes = notes;
 
         //Components of weight
-        this.date = date; //stored as date object, hrsUntil will determine weight
+		this.date = date; //stored as date object, hrsUntil will determine weight
+		this.date.setDate(this.date.getDate() + 1);
+		this.date.setHours(12);
         this.estTime = estTime; //estimated time required to complete (min)
         this.difficulty = difficulty; //Hard(2), Medium(1), Easy(0)
 		this.diffNum = 0;
