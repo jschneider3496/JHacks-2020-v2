@@ -20,7 +20,7 @@ class ToDoItem {
         if(this.hrsUntil() <= 0) {
             return 1000;
         }
-        return (1 / (this.hrsUntil() / 24)) + (this.difficulty * this.estTime / 120);
+        return (1 / (this.hrsUntil() / 2400)) + (this.difficulty * this.estTime / 120);
     }
 
     toString() {
@@ -264,9 +264,9 @@ class ItemList {
         //     }
         // })
         // return this;
-        this.add(new ToDoItem("A", "aa", new Date(2023, 2, 15, 1, 0, 0, 0), 45, "Easy"));
-        this.add(new ToDoItem("B", "ss", new Date(), 15, "Medium"));
-		this.add(new ToDoItem("C", "gg", new Date(), 20, "Hard"));
+        this.add(new ToDoItem("A", "aa", new Date(2020, 2, 17, 1, 1, 1, 1), 45, 0));
+        this.add(new ToDoItem("B", "ss", new Date(2020, 2, 20, 1, 1, 1, 1), 15, 2));
+		this.add(new ToDoItem("C", "gg", new Date(2020, 4, 30, 1, 1, 1, 1), 20, 2));
     }
 
 }
