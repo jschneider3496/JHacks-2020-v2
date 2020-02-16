@@ -52,7 +52,7 @@
     </div>-->
     <div v-for="item in items" v-bind:key="item.name">
       <div class="col-md-12">
-        <base-button block type="default" class="mb-3" @click="modals.modal3 = true">{{item.weight}}</base-button>
+        <base-button block type="default" class="mb-3" @click="modals.modal3 = true">{{item.name}}</base-button>
 
         <modal
           :show.sync="modals.modal3"
