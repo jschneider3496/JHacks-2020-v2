@@ -39,19 +39,17 @@
             </label>
             <br />
             <label>
-              Duration (in minutes): 
+              Duration (in minutes):
               <input type="text" v-model="newItem.time" />
             </label>
             <br />
-            <label>
-              Difficulty: 
-            </label>
-              <select v-model="newItem.difficulty" required>
-                <option disabled value>Please select one</option>
-                <option>Easy</option>
-                <option>Medium</option>
-                <option>Hard</option>
-              </select>
+            <label>Difficulty:</label>
+            <select v-model="newItem.difficulty" required>
+              <option disabled value>Please select one</option>
+              <option>Easy</option>
+              <option>Medium</option>
+              <option>Hard</option>
+            </select>
             <!-- <base-input v-model="newItem.name" type="text" alternative class="mb-3" placeholder="Name" required></base-input>
             <base-input v-model="newItem.date" alternative class="mb-3" placeholder="Date" type="date" required></base-input>
             <base-input v-model="newItem.time" alternative class="mb-3" placeholder="Estimated time (in minutes)" required></base-input>
@@ -126,7 +124,7 @@
     </div>-->
     <div v-for="item in items" v-bind:key="item.weight">
       <div class="col-md-12">
-        <base-button block type="default" class="mb-3" @click="modals.modal3 = true">{{item.name}}</base-button>
+        <base-button block type="default" class="mb-3" @click="modals.modal3 = true">{{item.toString()}}</base-button>
         <modal
           :show.sync="modals.modal3"
           body-classes="p-0"
@@ -177,11 +175,6 @@ import { ToDoItem } from "../ItemList.js";
 var todo = new ItemList();
 var list = todo.toArray();
 
-function myFunction() {
-  var x = document.getElementById("createForm").submit;
-  console.log("log");
-  console.log(x);
-}
 
 export default {
   components: {
@@ -196,18 +189,18 @@ export default {
       },
       items: list,
       newItem: {
-        name: '',
-        notes: '',
-        date: '',
-        time: '',
-        difficulty: ''
+        name: "",
+        notes: "",
+        date: "",
+        time: "",
+        difficulty: ""
       }
     };
   },
 
   methods: {
     handleSubmit() {
-      console.log(this.newItem);
+      // console.log(this.newItem);
       todo.add(
         new ToDoItem(
           this.newItem.name,
@@ -217,8 +210,10 @@ export default {
           this.newItem.difficulty
         )
       );
+      todo.save();
       todo.printList();
-
+      list = todo.toArray();
+      // vm.$forceUpdate();
       // todo.add(new ToDoItem(name, notes,date, time, difficulty))
     }
   }

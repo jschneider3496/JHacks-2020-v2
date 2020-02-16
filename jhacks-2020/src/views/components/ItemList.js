@@ -227,56 +227,24 @@ class ItemList {
 
     save() {
         //Run to save
-        const fs = require('fs');
-        const jsonString = JSON.stringify(todo);
-        fs.writeFile('../../data/items.json', jsonString, err => {
-            if (err) {
-                console.log('Error writing file', err)
-            } else {
-                console.log('Successfully wrote file')
-            }
-        })
+		document.cookie = JSON.stringify(this);
+		//console.log(document.cookie);
+		
     }
 
     reload() {
-
-
-        //Run to reload
-        // const fs = require('fs');
-        // console.log(fs);
-        // fs.readFile('../../data/items.json', 'utf8', (err, jsonString) => {
-        //     if (err) {
-        //         console.log("Error reading file from disk:", err)
-        //         return 
-        //     }
-        //     try {
-        //         const tmpList = JSON.parse(jsonString);
-        //         var curr = tmpList.head;
-        //         var ele = curr.element;
-        //         while (curr) {
-        //             ele = curr.element;
-        //             this.add(new ToDoItem(ele.name, ele.notes, new Date(ele.date), ele.estTime, ele.difficulty));
-        //             curr = curr.next;
-        //         }
-                
-        //     } catch(err) {
-        //         console.log('Error parsing JSON string:', err)
-        //     }
-        // })
-        // return this;
-        this.add(new ToDoItem("A", "aa", new Date(2020, 2, 17, 1, 1, 1, 1), 45, 0));
-        this.add(new ToDoItem("B", "ss", new Date(2020, 2, 20, 1, 1, 1, 1), 15, 2));
-		this.add(new ToDoItem("C", "gg", new Date(2020, 4, 30, 1, 1, 1, 1), 20, 2));
-    }
+		const tmpList = JSON.parse(document.cookie);
+		var curr = tmpList.head;
+		var ele = curr.element;
+		while (curr) {
+			ele = curr.element;
+			this.add(new ToDoItem(ele.name, ele.notes, new Date(ele.date), ele.estTime, ele.difficulty));
+			curr = curr.next;
+		}
+		
+	}
 
 }
 
 export {ItemList};
 export {ToDoItem};
-
-// var todo = new ItemList;
-// todo.add(jh);
-// setTimeout(function() {todo.printList();}, 50);
-
-
-
